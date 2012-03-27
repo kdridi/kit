@@ -122,7 +122,7 @@ Dir.chdir "#{KIT_ROOT}" do
   system "/bin/bash -o pipefail -c '/usr/bin/curl -skSfL https://github.com/kdridi/kit/tarball/master | /usr/bin/tar xz -m --strip 1'"
 end
 
-warn "#{KIT_ROOT}/bin is not in your PATH." unless ENV['PATH'].split(':').include? '#{KIT_ROOT}/bin'
+warn "#{KIT_ROOT}/bin is not in your PATH." unless ENV['PATH'].split(':').include? "#{KIT_ROOT}/bin"
 
 if macos_version < 10.7
   warn "Now install Xcode: https://developer.apple.com/xcode/" unless File.exist? "/usr/bin/cc"
