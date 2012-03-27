@@ -1,0 +1,3 @@
+Installation
+
+/usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/kdridi/kit/master/Library/Contributions/install_kit.rb)"
