@@ -67,16 +67,16 @@ abort "#{KIT_ROOT}/.git already exists!" unless Dir["#{KIT_ROOT}/.git/*"].empty?
 abort "Don't run this as root!" if Process.uid == 0
 abort <<-EOABORT unless `groups`.split.include? "admin"
 This script requires the user #{ENV['USER']} to be an Administrator. If this
-sucks for you then you can install Homebrew in your home directory or however
+sucks for you then you can install Karim's iOS Toolkit in your home directory or however
 you please; please refer to our homepage. If you still want to use this script
 set your user to be an Administrator in System Preferences or `su' to a
 non-root user with Administrator privileges.
 EOABORT
 
 ohai "This script will install:"
-puts "#{KIT_ROOT}/bin/brew"
+puts "#{KIT_ROOT}/bin/kit"
 puts "#{KIT_ROOT}/Library/Formula/..."
-puts "#{KIT_ROOT}/Library/Homebrew/..."
+puts "#{KIT_ROOT}/Library/KIT/..."
 
 chmods = %w(. bin etc include lib lib/pkgconfig Library sbin share var var/log share/locale share/man
             share/man/man1 share/man/man2 share/man/man3 share/man/man4
@@ -114,7 +114,7 @@ else
 end
 
 Dir.chdir "#{KIT_ROOT}" do
-  ohai "Downloading and Installing Homebrew..."
+  ohai "Downloading and Installing Karim's iOS Toolkit..."
   # -m to stop tar erroring out if it can't modify the mtime for root owned directories
   # pipefail to cause the exit status from curl to propogate if it fails
   # we use -k because OS X curl has a bunch of bad SSL certificates
@@ -131,5 +131,5 @@ else
 end
 
 ohai "Installation successful!"
-puts "You should run `brew doctor' *before* you install anything."
-puts "Now type: brew help"
+puts "You should run `kit doctor' *before* you install anything."
+puts "Now type: kit help"
